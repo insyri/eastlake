@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { shorten, list, del } from "./api/workersapi";
+import { shorten, list } from "./api/workersapi";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import ShortUrlList from "./components/ShortUrlList";
 import getConfig from "next/config";
 import Footer from "./components/Footer";
-import ForkMeBadge from "./components/ForkMeBadge";
 
 const { publicRuntimeConfig } = getConfig();
 const baseURL = publicRuntimeConfig.CLOUDFLARE_WORKER_BASE_URL;
@@ -126,7 +124,6 @@ export default function Shorten() {
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <ForkMeBadge />
       {error && (
         <div className="my-4 p-2 rounded-lg bg-red-100 text-red-800">
           {error}
@@ -194,7 +191,7 @@ export default function Shorten() {
                 type="text"
                 name="shortUrl"
                 id="shortUrl"
-                className="shadow appearance-none border w-1/3 rounded-r-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border w-1/3 rounded-r-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 value={shortUrl}
                 onChange={(event) => {
                   setShortUrl(event.target.value);

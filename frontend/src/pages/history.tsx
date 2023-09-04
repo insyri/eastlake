@@ -4,7 +4,6 @@ import { history } from "./api/workersapi";
 import ReactECharts from "echarts-for-react";
 import getConfig from "next/config";
 import Footer from "./components/Footer";
-import ForkMeBadge from "./components/ForkMeBadge";
 
 const { publicRuntimeConfig } = getConfig();
 const baseURL = publicRuntimeConfig.CLOUDFLARE_WORKER_BASE_URL;
@@ -134,7 +133,6 @@ export default function ClickHistory() {
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-      <ForkMeBadge />{" "}
       <h1 className="text-3xl font-bold text-gray-700 mb-8">
         Click History for {baseURL}/{shortUrl}
       </h1>
